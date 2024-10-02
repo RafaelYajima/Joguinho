@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o numero</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <script>
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+    
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    </script>
+
+    <header>
+        <div id="clock"></div>
+    </header>
+
+    <div class="cards">
+        <a href="dificil.html" class="card red">
+            <p class="tip">Dificil</p>
+            <p class="second-text">1 - 20</p>
+        </a>
+        <a href="medio.html" class="card blue">
+            <p class="tip">Medio</p>
+            <p class="second-text">1 - 10</p>
+        </a>
+        <a href="facil.html" class="card green">
+            <p class="tip">Facil</p>
+            <p class="second-text">1 - 5</p>
+        </a>
+    </div>
+    
+</body>
+</html>

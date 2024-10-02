@@ -1,0 +1,89 @@
+header {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5); 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+}
+
+#clock {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  color: white;
+}
+
+body {
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, navy 15%, black 85%); 
+}
+
+@keyframes start {
+    0% {
+      transform: translate(0, -360%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 280px;
+  }
+  
+  .cards .red {
+    background-color: #f43f5e;
+    animation: start 5s;
+  }
+  
+  .cards .blue {
+    background-color: #3b82f6;
+    animation: start 4.2s;
+  }
+  
+  .cards .green {
+    background-color: #22c55e;
+    animation: start 3.6s;
+  }
+  
+  .cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .cards .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+  }
+  
+  .cards .card p.second-text {
+    font-size: .7em;
+  }
+  
+  .cards .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+  
+  .cards:hover > .card:not(:hover) {
+    filter: blur(5px);
+    transform: scale(0.9, 0.9);
+  }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo facil</title>
+    <link rel="stylesheet" href="css/facil.css">
+</head>
+<body>
+
+<script>
+    // Gerar numero aleatorio
+    let numeroAleatorio = parseInt(Math.random() * 5) + 1; 
+    console.log(numeroAleatorio);
+
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('clock').textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function verificaNumero() {
+        const numero = parseInt(document.getElementById('numero').value, 10);
+        let mensagem = "";
+        if (isNaN(numero) || numero < 1 || numero > 5) {
+            mensagem = "Número inválido! Escolha um número de 1 a 5.";
+        } else if (numeroAleatorio === numero) {
+            mensagem = "Parabéns, você acertou!";
+        } else {
+            mensagem = "Você ERROU!";
+        }
+        document.getElementById('mensagem').textContent = mensagem;
+    }
+    
+    function novoJogo() {
+        console.log(`[${numeroAleatorio}] era o número aleatório, foi gerado outro número`);
+        numeroAleatorio = parseInt(Math.random() * 5) + 1;
+        console.log("novo número", `[${numeroAleatorio}]`);
+        document.getElementById('mensagem').textContent = "" // Limpa a mensagem
+    }
+
+    // Gerar um número aleatório ao carregar a página
+    novoJogo();
+</script>
+
+<header>
+    <div id="clock"></div>
+</header>
+
+<section id="Principal">
+    <div class="text-content">
+        <h1><span class="white-text">Adivinhe o</span> <span class="blue-text">número secreto</span></h1>
+        <p>Escolha um número de 1 a 5.</p>
+        <input type="number" id="numero" min="1" max="5" placeholder="" aria-label="Digite um número">
+        <div class="button-container">
+            <button type="button" id="chutar" onclick="verificaNumero()">Chutar</button>
+            <button type="button" id="novoJogo" onclick="novoJogo()">Novo Jogo</button>
+        </div>
+        <!-- Adiciona a área para mostrar a mensagem -->
+        <div id="mensagem"></div>
+    </div>
+    <div class="image-content">
+        <img src="img/robo.png" alt="Imagem de Exemplo">
+    </div>
+</section>
+
+</body>
+</html>

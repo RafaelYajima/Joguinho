@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes animacao{
+    0% {box-shadow: 0px 0px 35px blue;}
+    50% {box-shadow: 0px 0px 400px red;}
+    100% {box-shadow: 0px 0px 35px blue;}
+
+    0% {border-color: blue;}
+    50% {border-color: red;}
+    100% {border-color: blue;}
+    
+    0% {border-radius: 0px}
+    50% {border-radius: 200px}
+    100% {border-radius: 0px}
+}
+
+@keyframes start {
+    0% {
+      transform: translate(0, -180%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+}
+  
+
+body {
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, navy 15%, black 85%); 
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+#clock {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: white;
+}
+
+#Principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 55%;
+    max-width: 1200px; 
+    height: 400px;
+    padding: 20px;
+    margin-top: 280px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    border: 5px solid red;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    animation: animacao 12s infinite, start 5s;
+    position: relative; 
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+input[type="number"] {
+    font-size: 0.875rem;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-size: 1rem;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: lightblue;
+}
+
+button:active {
+    background-color: navy;
+}
+
+.image-content {
+    margin-left: 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image-content img {
+    max-width: 78%; 
+    height: auto;
+    border-radius: 8px;
+    max-height: 100%;
+}
+
+.white-text {
+    color: white;
+}
+
+.blue-text {
+    color: blue;
+}
+
+#mensagem {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: lightskyblue;
+}
